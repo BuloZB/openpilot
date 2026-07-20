@@ -15,7 +15,6 @@ dependencies = [
   "tqdm",         # cars (fw_versions.py) on start + many one-off uses
 
   # core
-  "cffi",
   "scons",
   "pycapnp==2.1.0",  # 2.2 introduces a memory leak due to cyclic references
   "Cython",
@@ -73,7 +72,6 @@ testing = [
   "pytest-mock",
   "ruff",
   "codespell",
-  "pre-commit-hooks",
 ]
 
 dev = [
@@ -186,10 +184,6 @@ quote-style = "preserve"
 [tool.ty.rules]
 unresolved-import = "ignore"  # Cython-compiled modules (.pyx)
 unresolved-attribute = "ignore"  # many from capnp and Cython modules
-invalid-method-override = "ignore"  # signature variance issues
-possibly-missing-attribute = "ignore"  # too many false positives
-invalid-assignment = "ignore"  # often intentional monkey-patching
-invalid-argument-type = "ignore"  # many false positives from raylib, ctypes, numpy
 
 [tool.uv]
 python-preference = "only-managed"
